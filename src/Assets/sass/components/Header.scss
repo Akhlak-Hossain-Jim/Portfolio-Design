@@ -1,0 +1,187 @@
+$nav_height: 100px;
+$green: #64ffda;
+$out-line: dashed 2px $green;
+:root {
+  --font-mono {
+    font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
+    src: url(../../fonts/SFMono-Medium.otf);
+  }
+}
+.Header_nav {
+  position: sticky !important;
+  top: 0 !important;
+  left: 0 !important;
+  nav {
+    display: flex;
+    align-items: center !important;
+    justify-content: space-between;
+    padding: 0 50px;
+    width: 100%;
+    height: $nav_height;
+    @media (max-width: 768px) {
+      padding: 0 20px;
+    }
+    div {
+      &.brandLogo {
+        img {
+          height: 42px;
+          width: 42px;
+        }
+      }
+      &.mobile_nav {
+        &.ham {
+          position: relative;
+          @media (min-width: 769px) {
+            display: none;
+          }
+          &:focus {
+            outline: $out-line;
+            width: 50px;
+            height: 50px;
+            display: grid;
+            place-items: center;
+          }
+          .hamInner {
+            z-index: 12;
+            position: absolute;
+            top: 50%;
+            right: 0px;
+            width: 30px;
+            height: 2px;
+            border-radius: 4px;
+            background-color: $green;
+            transform: rotate(0deg);
+            &::after {
+              bottom: -10px;
+              transform: rotate(0deg);
+              content: "";
+              display: block;
+              position: absolute;
+              left: auto;
+              right: 0px;
+              width: 20px;
+              height: 2px;
+              border-radius: 4px;
+              background-color: $green;
+            }
+            &::before {
+              top: -10px;
+              opacity: 1;
+              content: "";
+              display: block;
+              position: absolute;
+              left: auto;
+              right: 0px;
+              width: 40px;
+              height: 2px;
+              border-radius: 4px;
+              background-color: $green;
+            }
+            &.cli_Active {
+              position: absolute;
+              top: 50%;
+              right: 0px;
+              width: 0;
+              height: 0;
+              border-radius: 4px;
+              background-color: $green;
+              transform: rotate(0deg);
+              &::after {
+                bottom: 8px;
+                content: "";
+                display: block;
+                position: absolute;
+                left: auto;
+                right: 0px;
+                width: 30px;
+                height: 2px;
+                border-radius: 4px;
+                background-color: $green;
+                transition-timing-function: ease;
+                transition-duration: 0.15s;
+                transition-property: transform;
+                transform: rotate(45deg);
+              }
+              &::before {
+                width: 120%;
+                top: -10px;
+                opacity: 1;
+                content: "";
+                display: block;
+                position: absolute;
+                left: auto;
+                right: 0px;
+                width: 30px;
+                height: 2px;
+                border-radius: 4px;
+                background-color: $green;
+                transition-timing-function: ease;
+                transition-duration: 0.15s;
+                transition-property: transform;
+                transform: rotate(-45deg);
+              }
+            }
+          }
+        }
+      }
+      &.navigation {
+        &.links {
+          a {
+            font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono",
+              monospace;
+            src: url(../../fonts/SFMono-Medium.otf);
+            line-height: 17px;
+            text-decoration: none;
+            color: #ccd6f6;
+            padding: 10px;
+            font-size: 13px;
+            z-index: 10;
+            cursor: pointer;
+            &:hover {
+              color: #64ffda;
+            }
+            &:focus {
+              outline: dashed 2px $green;
+            }
+            &.resume {
+              color: #64ffda;
+              background-color: transparent;
+              border: 1px solid #64ffda;
+              border-radius: 4px;
+              padding: 0.75rem 1rem;
+              line-height: 1;
+              text-decoration: none;
+              cursor: pointer;
+              margin-left: 15px;
+              &:hover {
+                outline: none;
+                background-color: rgba(100, 255, 218, 0.1);
+              }
+              &:focus {
+                outline: none;
+              }
+            }
+            span {
+              color: #64ffda;
+            }
+          }
+          @media (max-width: 768px) {
+            display: none;
+          }
+          &.clicked_Active {
+            @media (max-width: 768px) {
+              display: grid;
+              position: fixed;
+              background-color: #112240;
+              top: 0;
+              right: 0;
+              height: 100vh;
+              width: 70vw;
+              place-items: center;
+            }
+          }
+        }
+      }
+    }
+  }
+}
