@@ -18,7 +18,7 @@ function Nav() {
   });
   const hmEff = () => {
     document.querySelector("#ham").classList.toggle("cli_Active");
-    document.querySelector("#navLink").style.backdropFilter = "blur(0px)";
+    document.querySelector("#navLink").classList.toggle("clicked_Active");
   };
 
   return (
@@ -31,21 +31,23 @@ function Nav() {
           <div id="ham" className="hamInner"></div>
         </div>
         <div className="navigation links" id="navLink">
-          <a href="http://">
-            <span>01.</span>About
-          </a>
-          <a href="http://">
-            <span>02.</span>Experience
-          </a>
-          <a href="http://">
-            <span>03.</span>Work
-          </a>
-          <a href="http://">
-            <span>04.</span>Contact
-          </a>
-          <a href="http://" className="resume">
-            Resume
-          </a>
+          <div className="nav_container">
+            <a href="http://">
+              <span>01.</span>About
+            </a>
+            <a href="http://">
+              <span>02.</span>Experience
+            </a>
+            <a href="http://">
+              <span>03.</span>Work
+            </a>
+            <a href="http://">
+              <span>04.</span>Contact
+            </a>
+            <a href="http://" className="resume">
+              Resume
+            </a>
+          </div>
         </div>
       </nav>
     </header>

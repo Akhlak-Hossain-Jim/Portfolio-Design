@@ -31,6 +31,9 @@ $out-line: dashed 2px $green;
       &.mobile_nav {
         &.ham {
           position: relative;
+          display: flex;
+          justify-content: center;
+          align-items: center;
           @media (min-width: 769px) {
             display: none;
           }
@@ -38,8 +41,10 @@ $out-line: dashed 2px $green;
             outline: $out-line;
             width: 50px;
             height: 50px;
-            display: grid;
-            place-items: center;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
           }
           .hamInner {
             z-index: 12;
@@ -178,6 +183,49 @@ $out-line: dashed 2px $green;
               height: 100vh;
               width: 70vw;
               place-items: center;
+              animation: fromleft 1s !important;
+              @keyframes fromleft {
+                from {
+                  top: -100px !important;
+                  margin-right: -100%;
+                  border-radius: 0 0 0 300%;
+                  height: 10vh;
+                }
+
+                to {
+                  top: 0;
+                  margin-right: 0%;
+                  height: 100vh;
+                }
+              }
+            }
+            .nav_container {
+              display: grid;
+              a {
+                margin: 15px auto;
+              }
+            }
+          }
+
+          .nav_container {
+            a {
+              animation: equalize 2s;
+
+              @keyframes equalize {
+                from {
+                  // top: -100% !important;
+                  margin-top: -100%;
+                }
+                to {
+                  top: 0;
+                }
+              }
+            }
+            a:nth-child(1) {
+              animation-duration: 1s;
+            }
+            a:nth-child(2) {
+              animation-duration: 2s;
             }
           }
         }
